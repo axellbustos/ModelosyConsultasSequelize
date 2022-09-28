@@ -34,5 +34,11 @@ module.exports = {
         db.Movie.findByPk(req.params.id)
         .then(movie=> res.render('moviesDetail',{movie}))
         .catch(error => console.log(error))
+    },
+    add: (req,res)=>{
+
+    },
+    create: (req,res)=>{
+        
     }
 }

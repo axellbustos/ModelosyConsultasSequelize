@@ -12,6 +12,7 @@
     <figure>
         <img src="/img/logo-DH.png" alt="Logo Digital House">
       </figure>
+      <%- include('./partials/header')%>
     <h1>Estas seguro de querer borrar esta película: <%= movie.title %>???</h1>
     <p>
         <form action="/movies/delete/<%= movie.id %>?_method=delete" method="POST">

@@ -1,5 +1,6 @@
-const db=require('../database/models')
-
+const db = require('../database/models')
+const moment = require('moment')
+const sequilize = require('sequelize')
 module.exports = {
     //LIST ALL MOVIES
     list : (req,res) => {
@@ -44,25 +45,76 @@ module.exports = {
 
     //LOAD NEW MOVIE
     add: (req,res)=>{
-
+        db.Genre.findAll({
+            order:["name"]
+        })
+        .then((genres)=>{res.render("moviesAdd",{genres})})
+        .catch(errors =>console.log(errors))
     },
     create: (req,res)=>{
-        
+        const {title} = req.body;
+        db.Movie.create({
+            ...req.body,
+            title: title.trim()
+            //COMPLETAR
+        })
+        .then(movie=>{console.log(movie),
+        res.redirect('/movies/detail/'+ movie.id)})
+        .catch(errors =>console.log(errors))
     },
 
     //EDIT MOVIE
     edit: (req,res)=>{
+        const {} = req.body;
+        let genres=db.Genre.findAll({
+            order:["name"]
+        })
+        let movie= db.Movie.findByPk(req.params.id)
+
+        Promise.all([genres,movie])
+        .then(([genres,movie])=>{
+            return res.render("moviesEdit", {
+                genres,
+                Movie: movie,
+                moment:moment
+            })
+        })
+        .catch(errors =>console.log(errors))
         
     },
     update: (req,res)=>{
-        
+        const {title} = req.body;
+        db.Movie.update(
+            {
+                ...req.body,
+                title: title.trim()
+            },
+            {
+                where:{id:req.params.id}
+            }
+        )
+        .then(response =>{
+            console.log(response)
+            return res.redirect("/movies/detail/" + req.params.id)
+        })
+        .catch(errors =>console.log(errors))
     },
 
     //DELETE MOVIE
     delete: (req,res)=>{
-        
+        db.Movie.findByPk(req.params.id)
+        .then(movie=> res.render("moviesDelete",{
+            movie: movie
+        }))
+        .catch(errors =>console.log(errors))
     },
     destroy: (req,res)=>{
-        
+        db.Movie.destroy({
+            where:{id:req.params.id}
+        })
+        .then(result=>{
+            res.redirect('/movies')
+        })
+        .catch(errors =>console.log(errors))
     }
 }

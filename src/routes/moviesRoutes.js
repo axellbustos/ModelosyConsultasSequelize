@@ -14,11 +14,11 @@ router.post('/movies/create', moviesController.create);
 
 //EDIT
 router.get('/movies/edit/:id', moviesController.edit);
-router.post('/movies/update/:id', moviesController.update);
+router.put('/movies/update/:id', moviesController.update);
 
 //DELETE
 router.get('/movies/delete/:id', moviesController.delete);
-router.post('/movies/delete/:id', moviesController.destroy);
+router.delete('/movies/delete/:id', moviesController.destroy);
 
 
 module.exports = router;

@@ -1,20 +1,23 @@
-# Login completo con express
+# Modelos y consultas con sequelize
 
 ## :bookmark_tabs: Descripcion
 Proyecto elaborado en base a diferentes trabajos practicos de Digital House, la ultima actualizacion ofrece:
-- Registrar usuario
-- Login de usuario
-- Ver, modificar y eliminar perfil de usuario
-- Mantener session iniciada con cookies
+
+### rama master
+- Métodos de Sequelize que nos permiten hacer consultas de tipo: traer todos, encontrar uno, encontrar uno por su clave primaria.
+- Implementar operación de filtros de tipo Where, Order by y Limit.
+
+### rama CRUD
+- Implementar un sistema CRUD con Sequelize.
+- Métodos destroy() y update()
 
 ## :desktop_computer:Screenshots
 <p align="center" gap:"20px">
     
-<img src="https://user-images.githubusercontent.com/106710127/194787895-d88b9bbd-2fb9-4071-a7b6-b1e2a9704bdc.png" alt="drawing" width="250"/>    
-<img src="https://user-images.githubusercontent.com/106710127/194787949-7894c584-dc37-449a-9d39-36f63ff42d35.png" alt="drawing" width="250"/>        
-<img src="https://user-images.githubusercontent.com/106710127/194787964-cc2dd072-2417-430b-a2d0-1505567f7d7d.png" alt="drawing" width="250"/>
+<img src="https://user-images.githubusercontent.com/106710127/194782026-9ed7cdd3-af64-4e3b-a47f-050372829827.png" alt="drawing" width="250"/>    
+<img src="https://user-images.githubusercontent.com/106710127/194782049-aef666e2-e8e7-478f-a600-0110907b38d6.png" alt="drawing" width="250"/>    
+<img src="https://user-images.githubusercontent.com/106710127/194782067-ca29fd6a-2649-4d21-8812-1fe5db36d44e.png" alt="drawing" width="250"/>    
 </p>
-
 
 ## :heavy_check_mark:Requisitos previos
 
@@ -30,7 +33,7 @@ instalado sino que también precisa ser inicializado y configurado correctamente
 
 1. Clone el repositorio 
 ```bash
-git clone https://github.com/axellbustos/CRUD-1
+git clone https://github.com/axellbustos/ModelosyConsultasSequelize
 ```
 
 2. Instalar paquetes NPM
